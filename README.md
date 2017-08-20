@@ -1,4 +1,4 @@
-# angularJS脚手架
+# angularJS构建简单项目
 
 标签（空格分隔）： angularJS UI.router
 
