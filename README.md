@@ -1,6 +1,6 @@
 # angularJS构建简单项目
 ---
-##1、目录结构
+## 1、目录结构
 ```
 ├── dist/
 ├── static/
@@ -24,7 +24,7 @@
 │   ├── main.js
 └── index.html
 ```
-##2、入口文件index
+## 2、入口文件index
 - 通过在index.html中引入angular.js ui.router及其各模块
 ```js
 <script src="resource/anuglar/angular.js"></script>
@@ -43,7 +43,7 @@
     <ui-view></ui-view>
 </body>
 ```
-##3、主模块main.js
+## 3、主模块main.js
 由于原生js不支持模块的引入，这里使用webpack处理模块引入
 
 - 定义主模块，指定依赖模块
@@ -87,7 +87,7 @@ app.config(function ($stateProvider, $urlRouterProvider ) {
         })
 });
 ```
-##4.页面的构建
+## 4.页面的构建
 UI.router通过将controller与template建立强耦合来构建页面展示逻辑，即将controller指定到ui-view上，并将template的内容替换ui-view标签里的内容。而service用于接口的调用及多页面数据的交互，通过在controller注入service的方式来使用service，service与controller耦合度不高
 ###controller（控制器）
 controller有独立的作用域$scope（作用域可以视作模板、模型和控制器协同工作的粘接器）。通过将变量和方法挂载其上，指定为此controller的标签内元素即可通过angular提供的directive去渲染$scope中的变量，或将方法挂载到某个标签上。
@@ -117,8 +117,8 @@ module.exports = function ($scope,loginService) {
     
 }
 ```
-###template&&angularJS directive
-####渲染定义到$scope上的数据
+### template&&angularJS directive
+#### 渲染定义到$scope上的数据
 这样的指令包括{{}} ng-bind ng-html ng-repeat
 ```
 <section>
@@ -130,15 +130,15 @@ module.exports = function ($scope,loginService) {
     </ul>
 </section>
 ```
-####将定义在$scope上的方法挂载到元素上
+#### 将定义在$scope上的方法挂载到元素上
 ```
 <button ng-click='handleFilter()'></button>
 ```
-####将输入框等输入字段绑定到$scope形成双向绑定
+#### 将输入框等输入字段绑定到$scope形成双向绑定
 ```
 <input type="text" ng-modal='userFilter'>
 ```
-####控制元素class和显示
+#### 控制元素class和显示
 ```
 <ul ng-show='allNum'>
     <li ng-repeat='item in showList'>{{item.name}}</li>
@@ -147,7 +147,7 @@ module.exports = function ($scope,loginService) {
     <li ng-repeat='item in showList'>{{item.name}}</li>
 </ul>
 ```
-###service（服务）
+### service（服务）
 服务是定义在模块级的函数或对象，在同模块控制器中，只需依赖注入就可使用。因此可以用来实现多个控制器间的通讯、定义util方法以及全局常量
 用来和接口通讯
 ```
@@ -199,7 +199,7 @@ app
     .constant('httpservice',httpService)
     .factory('indexService',indexService)
 ```
-###自定义directive(指令)
+### 自定义directive(指令)
 angularJS没有组件的概念，directive可以实现类似组件的概念
 showListTemplate.js
 ```
