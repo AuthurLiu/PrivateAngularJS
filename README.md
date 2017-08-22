@@ -10,16 +10,15 @@
 │   ├── img/
 │   ├── js/
 ├── node_modules/
-├── views/
-│   ├── login/
-│   │  ├── login.html
 ├── src/
 │   ├── index/
 │   │  ├── indexController.js
 │   │  ├── indexService.js
+│   │  ├── index.html
 │   ├── login/
 │   │  ├── loginController.js
 │   │  ├── loginService.js
+│   │  ├── login.html
 │   ├── httpService.js
 │   ├── main.js
 └── index.html
@@ -89,7 +88,7 @@ app.config(function ($stateProvider, $urlRouterProvider ) {
 ```
 ## 4.页面的构建
 UI.router通过将controller与template建立强耦合来构建页面展示逻辑，即将controller指定到ui-view上，并将template的内容替换ui-view标签里的内容。而service用于接口的调用及多页面数据的交互，通过在controller注入service的方式来使用service，service与controller耦合度不高
-###controller（控制器）
+### controller（控制器）
 controller有独立的作用域$scope（作用域可以视作模板、模型和控制器协同工作的粘接器）。通过将变量和方法挂载其上，指定为此controller的标签内元素即可通过angular提供的directive去渲染$scope中的变量，或将方法挂载到某个标签上。
 尽管控制器看起来并没有起到什么控制的作用，但是它在这里起到了至关重要的作用。通过给定我们数据模型的语境，控制器允许我们建立模型和视图之间的数据绑定。
 ```
@@ -117,7 +116,7 @@ module.exports = function ($scope,loginService) {
     
 }
 ```
-### template&&angularJS directive
+### template(模板)&&angularJS directive（指令）
 #### 渲染定义到$scope上的数据
 这样的指令包括{{}} ng-bind ng-html ng-repeat
 ```
