@@ -151,20 +151,26 @@ module.exports = function ($scope,loginService) {
 服务是定义在模块级的函数或对象，在同模块控制器中，只需依赖注入就可使用。因此可以用来实现多个控制器间的通讯、定义util方法以及全局常量
 用来和接口通讯
 ```
-module.exports = function($q){
-    var userNavigationService = {
-        XXX:function(XX,XX,XX){
-            var deferred = $q.defer();
-            $http({
-                method:'GET',
-                url:'',
-                params:{
-
-                }
-            })
-        }
-    };
-    return userNavigationService
+module.exports = function ($q, $http, httpService) {
+  var loginService = {
+    getData: function () {
+      var deferred = $q.defer();
+      $http({
+        method: 'GET',
+        url: httpService + 'account',
+        params: {}
+      })
+      .then(function (res) {
+        deferred.resolve(res.data);
+      })
+      .catch(function (response) {
+        console.error('error', response.status, response.data.errno);
+        deferred.reject(res.data);
+      })
+      return deferred.promise
+    }
+  }
+  return loginService
 }
 ```
 util方法
