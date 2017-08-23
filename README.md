@@ -3,13 +3,18 @@
 ## 1、目录结构
 ```
 ├── dist/
+├── node_modules/
 ├── static/
 │   ├── css/
 │   ├── fonts/
 │   ├── framework/
 │   ├── img/
 │   ├── js/
-├── node_modules/
+├── view/
+│   ├── index/
+│   │  ├── index.html
+│   ├── login/
+│   │  ├── login.html
 ├── src/
 │   ├── index/
 │   │  ├── indexController.js
@@ -235,6 +240,16 @@ module.exports = function($parse,$rootScope){
 
 };
 ```
+## 5.angularJS与React
+### 1.dom更新方式
+#### AngularJS 
+采用“脏值检测”的方式，数据发生变更后，对于所有的数据和视图的绑定关系进行一次检测，识别是否有数据发生了改变，有变化进行处理，可能进一步引发其他数据的改变，所以这个过程可能会循环几次，一直到不再有数据变化发生后，将变更的数据发送到视图，更新页面展现。如果是手动对 ViewModel 的数据进行变更，为确保变更同步到视图，需要手动触发一次“脏值检测”。
+### React
+通过手动调用setState进行数据更新，默认调用setState即会重新渲染dom，可通过shouldComponentUpdate（）控制渲染。加入Virtual DOM提升性能（浏览器处理js速度远大于渲染dom）。
+### 2.模板形式
+angular采用的是在静态html文件中内嵌ng-directive形成的一种模板结构，其模板展现需谨遵angular提供的形式。react采用的是jsx，易于调试，且充分利用js的全部功能，避免学习的开销。
+### 3.逻辑书写形式
+angular中，页面逻辑由强耦合的controller、template共同完成，造成了逻辑的分散，不易排查问题，但易于分工。React不强制分离模板与逻辑，通过jsx混合写在组件中，易于调试。
 
  
 
