@@ -31,7 +31,7 @@
 ## 2、入口文件index
 - 通过在index.html中引入angular.js ui.router及其各模块
 ```js
-<script src="resource/anuglar/angular.js"></script>
+<script src="static/framework/anuglar/angular.js"></script>
 <script src="static/framework/anuglar/angular-cookies.js"></script>
 <script src="static/framework/anuglar/angular-animate.js"></script>
 <script src="static/framework/anuglar/angular-ui-router.js"></script>
