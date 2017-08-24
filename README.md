@@ -234,7 +234,7 @@ module.exports = function($parse,$rootScope){
         templateUrl: './showList.html',
         replace: true,
         link: function($scope) {
-            $scope.srcList = Json.parse(list)
+            $scope.srcList = JSON.parse(list)
         }
     };
 
