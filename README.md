@@ -211,7 +211,7 @@ app
 ```
 ### 自定义directive(指令)
 angularJS没有组件的概念，directive可以实现类似组件的概念
-showListTemplate.js
+#### showListTemplate.js
 ```
 <ul >
 	<li 
@@ -222,7 +222,7 @@ showListTemplate.js
 	</li>
 </ul>
 ```
-showListDirective.js
+#### showListDirective.js
 ```
 module.exports = function($parse,$rootScope){
     return {
